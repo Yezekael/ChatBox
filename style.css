@@ -3,6 +3,7 @@
   padding: 0;
   font-family: tahoma, sans-serif;
   box-sizing: border-box;
+
 }
 
 body {
@@ -15,7 +16,7 @@ body {
   height: 600px;
   background: #fff;
   padding: 25px;
-  margin-left: 20px auto;
+  margin: 20px auto;
   box-shadow: 0 3px #ccc;
 }
 
@@ -121,4 +122,47 @@ body {
 
 .chat_form button:hover {
   background: #13c8d9;
+}
+
+.container {
+  width: 900px;
+  height: 610px;
+  margin: 35px auto;
+  font-family: 'Raleway', sans-serif;;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  margin-bottom: 25px;
+  margin-top: 5px;
+  border: 2px solid #ccc;
+  color: #4f4f4f;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+label {
+  color: #464646;
+  text-shadow: 0 1px #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type=button] {
+  font-size: 16px;
+  background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+  border: 1px solid #e5a900;
+  color: #4e4d4b;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  outline: none;
+}
+
+input[type=button]:hover {
+  background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
 }
