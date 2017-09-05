@@ -4,13 +4,21 @@
     <title></title>
     <meta charset="utf-8"/>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap-3.3.7-dist/js/bootstrap.min.js" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/js/bootstrap.min.js" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <body>
-        <div class="modal fade" tabindex="-1" role="dialog">
+
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#registerModal">Open Modal</button>
+
+        <div id="registerModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -27,6 +35,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container">
             <div class="main">
                 <form id="form_id" method="post" name="myForm">
@@ -38,6 +47,7 @@
                 </form>
             </div>
         </div>
+
         <div class="chatbox">
             <div class="chatlogs">
                 <div class="chat friend">
@@ -49,15 +59,19 @@
                     <p class="chat_message">Hello World !!</p>
                 </div>
             </div>
+
             <div class="chat_form">
                 <textarea id="msg"></textarea>
                 <button id="bttn">Send</button>
             </div>
         </div>
     </body>
+
     <script>
         $("#bttn").on("click", function(){
             $("#msg").val("");
         });
+
+
     </script>
 </html>

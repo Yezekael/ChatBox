@@ -10,6 +10,11 @@ body {
   background: #1ddced
 }
 
+button {
+  margin-left: 710px;
+  padding: 15px;
+
+}
 .chatbox {
   width: 500px;
   min-width: 390px;
