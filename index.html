@@ -1,72 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="ChatBox/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-  <link href="ChatBox/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="ChatBox/bootstrap-3.3.7-dist/js/bootstrap.min.js" rel="stylesheet">
+    <title></title>
+    <meta charset="utf-8"/>
 
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/js/bootstrap.min.js" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-  <!-- <div class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Modal title</h4>
+    <body>
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>One fine body&hellip;</p>
+        <div class="container">
+            <div class="main">
+                <form id="form_id" method="post" name="myForm">
+                    <label> UserName :</label>
+                    <input type="text" name="userName" id="userName"/>
+                    <label>Password :</label>
+                    <input type="password" name="passWord" id="passWord"/>
+                    <input type="button" value="login" id=submit onclick="validate()"/>
+                </form>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="chatbox">
+            <div class="chatlogs">
+                <div class="chat friend">
+                    <div class="user_photo"><img src="img/UserOne.png"></div>
+                    <p class="chat_message">Hello World !</p>
+                </div>
+                <div class="chat self">
+                    <div class="user_photo"><img src="img/UserTwo.png"></div>
+                    <p class="chat_message">Hello World !!</p>
+                </div>
+            </div>
+            <div class="chat_form">
+                <textarea id="msg"></textarea>
+                <button id="bttn">Send</button>
+            </div>
         </div>
-      </div>
-    </div>
-  </div> -->
-
-
-  <div class="container">
-    <div class="main">
-      <form id="form_id" method="post" name="myForm">
-        <label> UserName :</label>
-        <input type="text" name="userName" id="userName"/>
-        <label>Password :</label>
-        <input type="password" name="passWord" id="passWord"/>
-        <input type="button" value="login" id=submit onclick="validate()"/>
-      </form>
-    </div>
-  </div>
-
-
-
-  <div class="chatbox">
-    <div class="chatlogs">
-
-      <div class="chat friend">
-        <div class="user_photo"><img src="ChatBox/img/UserOne.png"></div>
-        <p class="chat_message">Hello World !</p>
-      </div>
-      <div class="chat self">
-        <div class="user_photo"><img src="ChatBox/img/UserTwo.png"></div>
-        <p class="chat_message">Hello World !!</p>
-      </div>
-
-
-    </div>
-    <div class="chat_form">
-      <textarea id="msg"></textarea>
-      <button id="bttn">Send</Send>
-    </div>
-  </div>
-</body>
-
-<script>
-$("#bttn").on("click", function(){
-  $("#msg").val("");
-});
-</script>
+    </body>
+    <script>
+        $("#bttn").on("click", function(){
+            $("#msg").val("");
+        });
+    </script>
 </html>
