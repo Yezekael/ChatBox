@@ -1,8 +1,6 @@
 <?php
-    $dsn = 'mysql:dbname=chatbox;localhost';
-    $dbuser = 'root';
-    $pdo = new PDO($dsn, $dbuser);
-
+    include('config.php');
+    
     $nickname = trim($_GET['nickname']);
     $email = trim($_GET['email']);
     $password = trim($_GET['nickname']);
