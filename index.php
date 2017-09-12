@@ -79,7 +79,7 @@
 </fieldset> -->
 
 
-<div class="chatbox">
+<!-- <div class="chatbox">
   <div class="chatlogs">
     <div class="chat friend" id="chat_friend">
       <div class="user_photo"><img src="img/UserOne.png"></div>
@@ -89,19 +89,19 @@
     <div class="user_photo"><img src="img/UserTwo.png"></div>
     <p class="chat_message">Hello World !!</p>
   </div>
-</div>
+</div> -->
 
 
-<div class="chat_form" id="chat_form">
+<!-- <div class="chat_form" id="chat_form">
   <textarea id="msg"></textarea>
   <button type="button" id="send">Send</button>
 </div>
 </div>
-</div>
+</div> -->
 
 
 
-<script>
+<!-- <script>
 $(function() {
   afficheConversation();
   $('#send').click(function() {
@@ -118,9 +118,32 @@ $(function() {
   setInterval(afficheConversation, 4000);
 });
 
-</script>
+</script> -->
 
-
+<!-- <div id="messages">
+            <?php
+                // try
+                // {
+                //     $bdd = new PDO('mysql:host=localhost;dbname=tchat', 'root', '');
+                // }
+                // catch (Exception $e)
+                // {
+                //     die('Erreur : ' . $e->getMessage());
+                // }
+                // $requete = $bdd->query('SELECT * FROM messages ORDER BY id DESC LIMIT 0,10');
+                // while($donnees = $requete->fetch()){
+                //     echo "<p id=\"" . $donnees['id'] . "\">" . $donnees['pseudo'] . " dit : " . $donnees['message'] . "</p>";
+                // }
+                // $requete->closeCursor();
+            ?>
+        </div>
+    <form method="POST" action="traitement.php">
+        Pseudo : <input type="text" name="pseudo" id="pseudo" /><br />
+        Message : <textarea name="message" id="message"></textarea><br />
+        <input type="submit" name="submit" value="Envoyez votre message !" id="envoi" />
+    </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="main.js"></script> -->
 </body>
 
 <script>
