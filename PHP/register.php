@@ -1,6 +1,6 @@
 <?php
     include('config.php');
-    
+
     $nickname = trim($_GET['nickname']);
     $email = trim($_GET['email']);
     $password = trim($_GET['nickname']);
@@ -10,12 +10,12 @@
         $req = $pdo->prepare('INSERT INTO `user` (nickname, email, password, last_logout) VALUES (:nickname, :email, :password, NOW())');
         $results = $req->execute(array(':nickname' => $nickname, ':email' => $email, ':password' => $password));
         if ($results) {
-            echo ('success' => 'true');
+            echo json_encode(array('success' => 'true'));
             return true;
         } else {
-            echo ('success' => 'false', 'error' => 'Erreur lors de l\'entrée en BDD.');
+            echo json_encode(array('success' => 'false', 'error' => 'Erreur lors de l\'entrée en BDD.'));
         }
     } else {
-        echo ('success' => 'false', 'error' => 'Veuillez renseigner tous les champs.');
+        echo json_encode(array('success' => 'false', 'error' => 'Veuillez renseigner tous les champs.'));
     }
 ?>

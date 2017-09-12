@@ -11,12 +11,12 @@
         $user = $req->fetchAll();
         if ($results) {
             if (count($user) == 1) {
-                echo ('success' => 'true');
+                echo json_encode(array('success' => 'true'));
             } else {
-                echo ('success' => 'false', 'error' => 'Username et/ou mot de passe incorrects.');
+                echo json_encode(array('success' => 'false', 'error' => 'Username et/ou mot de passe incorrects.'));
             }
         } else {
-            echo ('success' => 'false', 'error' => 'Erreur en BDD.');
+            echo json_encode(array('success' => 'false', 'error' => 'Erreur en BDD.'));
         }
     }
 ?>
