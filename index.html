@@ -20,6 +20,12 @@
 
         <div id="registerModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Register</h4>
+                </div>
+                <div class="modal-body">
               <form id="register_id" method="post" name="registerForm">
                   <label> UserName :</label>
                   <input type="text" name="userName" id="userName"/>
@@ -29,10 +35,13 @@
                   <input type="text" name="mail" id="mail"/>
                   <label>Date Of Birth :</label>
                   <input type="date" name="dateOfBirth" id="dateOfBirth"/>
-
-                  <input type="button" value="register" id=submit onclick="validate()"/>
-              </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="button" value="Register" id=submit onclick="validate()"/>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
 
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Login</button>
