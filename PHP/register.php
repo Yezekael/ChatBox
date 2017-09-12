@@ -3,7 +3,7 @@
 
     $nickname = trim($_GET['nickname']);
     $email = trim($_GET['email']);
-    $password = trim($_GET['nickname']);
+    $password = trim($_GET['password']);
 
     if ($nickname && $email && $password) {
         $password = sha1($password);

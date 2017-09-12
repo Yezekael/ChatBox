@@ -1,17 +1,18 @@
 $(document).ready(function(){
   $("submit").click(function{
     $.post(
-      'login.php',
+      'register.php',
       {
         login: $("nickname").val(),
-        password: $("password").val()
+        email: $("email").val(),
+        password: $("email").val()
       },
       function(data){
         if (data=='success'){
-          $("#result").html("<p>Connection success !</p>");
+          $("#result").html("<p>Registration success !</p>");
         }
         else{
-          $("#result").html("<p>Connection failed...</p>");
+          $("#result").html("<p>Registration failed...</p>");
         }
       },
       'json'
