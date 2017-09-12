@@ -80,46 +80,44 @@
 
 
 <div class="chatbox">
-  <div class="chatlogs">
-    <div class="chat friend" id="chat_friend">
-      <div class="user_photo"><img src="img/UserOne.png"></div>
-      <p class="chat_message" id="message">Hello World !</p>
+    <div class="chatlogs">
+        <div class="chat friend" id="chat_friend">
+            <div class="user_photo"><img src="img/UserOne.png"></div>
+            <p class="chat_message" id="message">Hello World !</p>
+            <!-- <input type="text" id="send" title="Send">
+            <input type="button" id="send" title="Send"</button> -->
+        </div>
+        <!-- <div class="chat self">
+        <div class="user_photo"><img src="img/UserTwo.png"></div>
+        <p class="chat_message">Hello World !!</p>
     </div>
-    <div class="chat self">
-    <div class="user_photo"><img src="img/UserTwo.png"></div>
-    <p class="chat_message">Hello World !!</p>
-  </div>
-</div>
+</div> -->
 
 
 <div class="chat_form" id="chat_form">
-  <textarea id="msg"></textarea>
-  <button type="button" id="send">Send</button>
+    <textarea id="msg"></textarea>
+    <button type="button" id="send">Send</button>
 </div>
 </div>
-</div>
-
-
 
 <script>
 $(function() {
-  afficheConversation();
-  $('#send').click(function() {
-    var message = $('#msg').val();
-    $.post('chat.php', {
-      'msg': message
-    }, afficheConversation);
-  });
+    afficheConversation();
+    $('#send').click(function() {
+        var message = $('#msg').val();
+        $.post('chat.php', {
+            'msg': message
+        }, afficheConversation);
+    });
 
-  function afficheConversation() {
-    $('#msg').val('');
-    $('#msg').focus();
-  }
-  setInterval(afficheConversation, 4000);
+    function afficheConversation() {
+        $('#msg').val('');
+        $('#msg').focus();
+    }
+    setInterval(afficheConversation, 4000);
 });
 
 </script>
-
 
 </body>
 
