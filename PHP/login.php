@@ -1,22 +1,26 @@
 <?php
     include('config.php');
 
-    $nickname = trim($_GET['nickname']);
-    $password = trim($_GET['password']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
-    if ($nickname && $password) {
+    if ($username && $password) {
         $password = sha1($password);
-        $req = $pdo->prepare("SELECT * FROM `user` WHERE nickname = :nickname AND password = :password");
-        $results = $req->execute(array(':nickname' => $nickname, ':password' => $password));
+        $req = $pdo->prepare("SELECT * FROM `user` WHERE username = :username AND password = :password");
+        $results = $req->execute(array(':username' => $username, ':password' => $password));
         $user = $req->fetchAll();
         if ($results) {
             if (count($user) == 1) {
-                echo json_encode(array('success' => 'true'));
+                $_SESSION['username'] = $username;
+                $_SESSION['id'] = $user[0]['id'];
+                echo json_encode(array('success' => 'true', 'username' => $username));
             } else {
-                echo json_encode(array('success' => 'false', 'error' => 'Username et/ou mot de passe incorrects.'));
+                echo json_encode(array('success' => 'false', 'error' => 'Username and password incorrect.'));
             }
         } else {
-            echo json_encode(array('success' => 'false', 'error' => 'Erreur en BDD.'));
+            echo json_encode(array('success' => 'false', 'error' => 'Error while fetching user in DB.'));
         }
+    } else {
+        echo json_encode(array('success' => 'false', 'error' => 'Please complete all the fields.'));
     }
 ?>

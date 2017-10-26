@@ -131,11 +131,13 @@
                 </div>
                 <div class="modal-body">
                     <form id="login-form" method="post">
-                        <label>UserName :</label>
+                        <label>Username :</label>
                         <input type="text" name="username" id="username-login"/>
                         <label>Password :</label>
                         <input type="password" name="password" id="password-login"/>
                     </form>
+                    <div id="resultLogin" class="hidden"></div>
+                </div>
                 <div class="modal-footer">
                     <input type="button" value="Login" id="submitLogin"/>
                 </div>

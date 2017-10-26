@@ -1,13 +1,18 @@
 $(document).ready(function(){
     $("#submitLogin").on('click', function() {
+        $("#resultLogin").html('');
+        $('#resultLogin').addClass('hidden');
         $.post(
             './PHP/login.php',
-            {login: $("nickname").val(), password: $("password").val()},
+            $('#login-form').serialize(),
             function(data){
-                if (data=='success'){
-                    $("#result").html("<p>Connection success !</p>");
+                if (data.success == 'true'){
+                    $('#loginModal').modal('toggle');
+                    resetLogin();
+                    modifyHeader();
                 } else {
-                    $("#result").html("<p>Connection failed...</p>");
+                    $("#resultLogin").html('<span class="text-danger">' + data.error + '</span>');
+                    $('#resultLogin').removeClass('hidden');
                 }
             },
             'json'
@@ -35,6 +40,9 @@ $(document).ready(function(){
     $('#registerModal').on('hidden.bs.modal', function() {
         resetRegister();
     });
+    $('#loginModal').on('hidden.bs.modal', function() {
+        resetLogin();
+    });
 });
 
 function resetRegister() {
@@ -43,6 +51,13 @@ function resetRegister() {
     $('#username-register').val('');
     $('#password-register').val('');
     $('#mail-register').val('');
+}
+
+function resetLogin() {
+    $("#resultLogin").html('');
+    $('#resultLogin').addClass('hidden');
+    $('#username-login').val('');
+    $('#password-login').val('');
 }
 
 function modifyHeader() {
