@@ -26,81 +26,24 @@
         <a id="logout-button">Logout</a>
     </div>
 
-    <!-- <fieldset>
-    <div id="tchat">
-    <form action="#" method="post">
-    <input type="text" id="message">
-    <button type="button" id"send" title="Send"></button>
-    </form>
+    <div class="chatbox <?php echo isset($_SESSION['id']) ? '' : 'hidden' ?>">
+        <div class="chatlogs">
+            <div class="chat friend" id="chat_friend">
+                <div class="user_photo"><img src="img/UserOne.png"></div>
+                <p class="chat_message" id="message">Hello World !</p>
+            </div>
+            <div class="chat self">
+                <div class="user_photo"><img src="img/UserTwo.png"></div>
+                <p class="chat_message">Hello World !!</p>
+            </div>
+        </div>
+
+
+        <div class="chat_form" id="chat_form">
+            <textarea id="msg"></textarea>
+            <button type="button" id="send">Send</button>
+        </div>
     </div>
-    </fieldset> -->
-
-
-    <!-- <div class="chatbox">
-    <div class="chatlogs">
-    <div class="chat friend" id="chat_friend">
-    <div class="user_photo"><img src="img/UserOne.png"></div>
-    <p class="chat_message" id="message">Hello World !</p>
-    </div>
-    <div class="chat self">
-    <div class="user_photo"><img src="img/UserTwo.png"></div>
-    <p class="chat_message">Hello World !!</p>
-    </div>
-    </div> -->
-
-
-    <!-- <div class="chat_form" id="chat_form">
-    <textarea id="msg"></textarea>
-    <button type="button" id="send">Send</button>
-    </div>
-    </div>
-    </div> -->
-
-
-
-    <!-- <script>
-    $(function() {
-    afficheConversation();
-    $('#send').click(function() {
-    var message = $('#msg').val();
-    $.post('chat.php', {
-    'msg': message
-    }, afficheConversation);
-    });
-
-    function afficheConversation() {
-    $('#msg').val('');
-    $('#msg').focus();
-    }
-    setInterval(afficheConversation, 4000);
-    });
-
-    </script> -->
-
-    <!-- <div id="messages">
-    <?php
-    // try
-    // {
-    //     $bdd = new PDO('mysql:host=localhost;dbname=tchat', 'root', '');
-    // }
-    // catch (Exception $e)
-    // {
-    //     die('Erreur : ' . $e->getMessage());
-    // }
-    // $requete = $bdd->query('SELECT * FROM messages ORDER BY id DESC LIMIT 0,10');
-    // while($donnees = $requete->fetch()){
-    //     echo "<p id=\"" . $donnees['id'] . "\">" . $donnees['pseudo'] . " dit : " . $donnees['message'] . "</p>";
-    // }
-    // $requete->closeCursor();
-    ?>
-    </div>
-    <form method="POST" action="traitement.php">
-    Pseudo : <input type="text" name="pseudo" id="pseudo" /><br />
-    Message : <textarea name="message" id="message"></textarea><br />
-    <input type="submit" name="submit" value="Envoyez votre message !" id="envoi" />
-    </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="main.js"></script> -->
 
     <!-- MODAL D'INSCRIPTION -->
     <div id="registerModal" class="modal fade" tabindex="-1" role="dialog">
