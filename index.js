@@ -9,7 +9,7 @@ $(document).ready(function(){
                 if (data.success == 'true'){
                     $('#loginModal').modal('toggle');
                     resetLogin();
-                    modifyHeader();
+                    modifyHeader(1, data.username);
                 } else {
                     $("#resultLogin").html('<span class="text-danger">' + data.error + '</span>');
                     $('#resultLogin').removeClass('hidden');
@@ -28,10 +28,21 @@ $(document).ready(function(){
                 if (data.success == 'true'){
                     $('#registerModal').modal('toggle');
                     resetRegister();
-                    modifyHeader();
+                    modifyHeader(1, data.username);
                 } else {
                     $("#resultRegister").html('<span class="text-danger">' + data.error + '</span>');
                     $('#resultRegister').removeClass('hidden');
+                }
+            },
+            'json'
+        );
+    });
+    $('#logout-button').on('click', function() {
+        $.post(
+            './PHP/logout.php',
+            function(data){
+                if (data.success == 'true') {
+                    modifyHeader(0, '');
                 }
             },
             'json'
@@ -60,6 +71,23 @@ function resetLogin() {
     $('#password-login').val('');
 }
 
-function modifyHeader() {
-    //TODO Définir différents headers
+function modifyHeader(login, username) {
+    if (login == 1){
+        $('#greetings').html('Hi ' + username + '!')
+        $('#menu-logged').removeClass('hidden');
+        $('#menu').addClass('hidden');
+    } else {
+        $('#greetings').html('');
+        $('#menu-logged').addClass('hidden');
+        $('#menu').removeClass('hidden');
+    }
+}
+
+function testSession() {
+    $.post(
+        './PHP/sessionState.php',
+        function(data){
+            console.log(data);
+        }
+    );
 }

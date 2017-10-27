@@ -1,5 +1,6 @@
 <?php
     include('config.php');
+    session_start();
 
     $username = trim($_POST['username']);
     $mail = trim($_POST['mail']);

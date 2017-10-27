@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,14 @@
 </head>
 
 <body>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#registerModal">Register</button>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Login</button>
+    <div id="menu" class="navbar <?php echo isset($_SESSION['id']) ? 'hidden' : '' ?>">
+        <a data-toggle="modal" data-target="#registerModal">Register</a>
+        <a data-toggle="modal" data-target="#loginModal">Login</a>
+    </div>
+    <div id="menu-logged" class="navbar <?php echo isset($_SESSION['id']) ? '' : 'hidden' ?>">
+        <p id="greetings"><?php echo isset($_SESSION['username']) ? 'Hi ' . $_SESSION['username'] . '!' : '' ?></p>
+        <a id="logout-button">Logout</a>
+    </div>
 
     <!-- <fieldset>
     <div id="tchat">
