@@ -48,6 +48,19 @@ $(document).ready(function(){
             'json'
         );
     });
+    $('#sendMessage').on('click', function(){
+        $.post(
+            './PHP/messageHandler.php',
+            {message : $('#message').val()},
+            function(data){
+                if (data.success == 'true') {
+                    $('#message').val('');
+                    $('.chatlogs').append('<div class="chat self"><div class="user_photo"><img src="img/UserTwo.png"></div><p class="chat_message">' + data.message + '</p></div>');
+                }
+            },
+            'json'
+        );
+    });
     $('#registerModal').on('hidden.bs.modal', function() {
         resetRegister();
     });
