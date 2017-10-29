@@ -14,7 +14,7 @@
             if (count($user) == 1) {
                 $_SESSION['username'] = $username;
                 $_SESSION['id'] = $user[0]['id'];
-                echo json_encode(array('success' => 'true', 'username' => $username));
+                echo json_encode(array('success' => 'true', 'username' => $username, 'userId' => $_SESSION['id']));
             } else {
                 echo json_encode(array('success' => 'false', 'error' => 'Username and password incorrect.'));
             }

@@ -28,14 +28,15 @@
 
     <div class="chatbox <?php echo isset($_SESSION['id']) ? '' : 'hidden' ?>">
         <div class="chatlogs">
-            <div class="chat friend">
+            <!-- MESSAGE SAMPLES DO NOT UNCOMMENT -->
+            <!-- <div class="chat friend">
                 <div class="user_photo"><img src="img/UserOne.png"></div>
                 <p class="chat_message">Hello World !</p>
             </div>
             <div class="chat self">
                 <div class="user_photo"><img src="img/UserTwo.png"></div>
                 <p class="chat_message">Hello World !!</p>
-            </div>
+            </div> -->
         </div>
 
 

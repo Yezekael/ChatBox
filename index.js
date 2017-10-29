@@ -1,3 +1,6 @@
+var userId;
+var messageInterval = setInterval(function() { retrieveMessage(); }, 500);
+
 $(document).ready(function(){
     $("#submitLogin").on('click', function() {
         $("#resultLogin").html('');
@@ -8,8 +11,10 @@ $(document).ready(function(){
             function(data){
                 if (data.success == 'true'){
                     $('#loginModal').modal('toggle');
+                    userId = data.userId;
                     resetLogin();
                     modifyDisplay(1, data.username);
+                    retrieveMessage();
                 } else {
                     $("#resultLogin").html('<span class="text-danger">' + data.error + '</span>');
                     $('#resultLogin').removeClass('hidden');
@@ -27,8 +32,10 @@ $(document).ready(function(){
             function(data){
                 if (data.success == 'true'){
                     $('#registerModal').modal('toggle');
+                    userId = data.userId;
                     resetRegister();
                     modifyDisplay(1, data.username);
+                    retrieveMessage();
                 } else {
                     $("#resultRegister").html('<span class="text-danger">' + data.error + '</span>');
                     $('#resultRegister').removeClass('hidden');
@@ -43,6 +50,7 @@ $(document).ready(function(){
             function(data){
                 if (data.success == 'true') {
                     modifyDisplay(0, '');
+                    $('.chatlogs').html('');
                 }
             },
             'json'
@@ -55,7 +63,7 @@ $(document).ready(function(){
             function(data){
                 if (data.success == 'true') {
                     $('#message').val('');
-                    $('.chatlogs').append('<div class="chat self"><div class="user_photo"><img src="img/UserTwo.png"></div><p class="chat_message">' + data.message + '</p></div>');
+                    $('.chatlogs').append('<div class="text-right"><dt>' + data.username + '</dt></div><div class="chat self"><div class="user_photo"><img src="img/UserTwo.png"></div><p class="chat_message">' + data.message + '</p></div>');
                 }
             },
             'json'
@@ -96,6 +104,28 @@ function modifyDisplay(login, username) {
         $('#menu').removeClass('hidden');
         $('.chatbox').addClass('hidden');
     }
+}
+
+function retrieveMessage() {
+    $.post(
+        './PHP/messageRetriever.php',
+        function(data) {
+            if (data.success == 'true') {
+                data.messages.forEach(function(element){
+                    if (element.user_id == userId) {
+                        $('.chatlogs').append('<div class="text-right"><dt>' + element.username + '</dt></div><div class="chat self"><div class="user_photo"><img src="img/UserTwo.png"></div><p class="chat_message">' + element.content + '</p></div>');
+                    } else {
+                        $('.chatlogs').append('<div class="text-left"><dt>' + element.username + '</dt></div><div class="chat friend"><div class="user_photo"><img src="img/UserOne.png"></div><p class="chat_message">' + element.content + '</p></div>');
+                    }
+                });
+            }
+        },
+        'json'
+    );
+}
+
+function isset(element) {
+    return(typeof element !== 'undefined');
 }
 
 function testSession() {

@@ -17,11 +17,11 @@
                 $req = $pdo->prepare('INSERT INTO `user` (username, mail, password, last_logout) VALUES (:username, :mail, :password, NOW())');
                 $results = $req->execute(array(':username' => $username, ':mail' => $mail, ':password' => $password));
                 if ($results) {
-                    echo json_encode(array('success' => 'true', 'username' => $username));
                     $req = $pdo->prepare('SELECT id FROM `user` WHERE `mail` = :mail');
                     $results = $req->execute(array(':mail' => $mail));
                     $_SESSION['username'] = $username;
                     $_SESSION['id'] = $req->fetchColumn();
+                    echo json_encode(array('success' => 'true', 'username' => $username, 'userId' => $_SESSION['id']));
                 } else {
                     echo json_encode(array('success' => 'false', 'error' => 'Could not create user in DB.'));
                 }
