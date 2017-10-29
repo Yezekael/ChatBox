@@ -46,6 +46,11 @@
         </div>
     </div>
 
+    <div class="games text-center <?php echo isset($_SESSION['id']) ? '' : 'hidden' ?>">
+        <a href="./mastermind/index.html" target="_blank"><img src="./img/mastermind.png" height="50"></a>
+        <a href="./tictactoe/index.html" target="_blank"><img src="./img/tictactoe.png" height="50"></a>
+    </div>
+
     <!-- MODAL D'INSCRIPTION -->
     <div id="registerModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">

@@ -98,11 +98,13 @@ function modifyDisplay(login, username) {
         $('#menu-logged').removeClass('hidden');
         $('#menu').addClass('hidden');
         $('.chatbox').removeClass('hidden');
+        $('.games').removeClass('hidden');
     } else {
         $('#greetings').html('');
         $('#menu-logged').addClass('hidden');
         $('#menu').removeClass('hidden');
         $('.chatbox').addClass('hidden');
+        $('.games').addClass('hidden');
     }
 }
 

@@ -209,3 +209,12 @@ input[type=button]:hover {
     cursor:pointer;
     text-decoration: none;
 }
+
+.games a{
+    padding: 20px 10px;
+}
+
+.games a:hover{
+    border: solid 2px;
+    border-color: blue;
+}
