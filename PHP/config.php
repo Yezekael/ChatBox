@@ -1,5 +1,10 @@
 <?php
-    $dsn = 'mysql:dbname=chatbox;localhost';
+    $dbhost = 'localhost';
+    $dbname = 'chatbox';
     $dbuser = 'root';
-    $pdo = new PDO($dsn, $dbuser);
+    $dbpassword = '';
+
+    
+    $dsn = 'mysql:dbname=' . $dbname . ';' . $dbhost;
+    $pdo = new PDO($dsn, $dbuser, $dbpassword);
 ?>
